@@ -1,0 +1,2 @@
+
+for /F "tokens=1,2 delims=#" %%a in (commands.txt) do  C:\Python34\python.exe %%a > %%b
