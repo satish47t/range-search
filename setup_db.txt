@@ -1,0 +1,31 @@
+CREATE KEYSPACE ny_WITH restaurants replication = {'class': 'SimpleStrategy', 'replication_factor': '3'};
+
+use ny_restaurants;
+
+CREATE TABLE raw_restaurants (
+    display_phone varchar,
+    id varchar PRIMARY KEY,
+    is_claimed boolean,
+    is_closed boolean,
+    address varchar,
+    city varchar,
+    latitude float,
+    longitude float,
+    country_code varchar,
+    display_address varchar,
+    geo_accuracy float,
+    postal_code int,
+    state_code varchar,
+    name varchar,
+    phone varchar,
+    rating float,
+    review_count int,
+	categories varchar
+);
+
+CREATE INDEX ON raw_restaurants (categories);
+CREATE INDEX ON raw_restaurants (latitude);
+CREATE INDEX ON raw_restaurants (longitude);
+CREATE INDEX ON raw_restaurants (state_code);
+CREATE INDEX ON raw_restaurants (rating);
+
